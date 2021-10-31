@@ -1,0 +1,36 @@
+<div class="fondoLogin espaciadorLogin img-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-4 login1">
+                <h3 class="titulo">Inicio de Sesión</h3>
+                <br>
+                <form>
+                    <span class="texto">Usuario </span>
+                    <br>
+                    <input type="text" class="form-control inputs" name="usuario" id="usuario">
+                    <br>
+                    <span class="texto">Contraseña </span>
+                    <br>
+                    <input type="password" class="form-control inputs" name="password" id="password">
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <input class="boton btn btn-secondary" type="button" (click)=entrar() value="Iniciar Sesión">
+                        </div>
+                        <div class="col-md-4">
+                            <input class="boton btn btn-warning" type="button" (click)=salir() value="Cerrar Sesión">
+                        </div>
+                        <div class="col-md-4">
+                            <input class="boton btn btn-secondary" type="button" (click)=registro() value="Registrarse">  
+                        </div>      
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4 login2">
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</div>
+

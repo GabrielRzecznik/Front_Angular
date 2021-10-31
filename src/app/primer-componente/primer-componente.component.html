@@ -1,0 +1,134 @@
+<form>
+    <br>
+    <h3>Primer Componente</h3>
+    <!--Comunicación con primer componente a ejercicio-->
+    <h4>"{{miValor}}"</h4>
+    <br>
+    <div class="row">
+        <label>{{nombreProyecto}}</label>
+        <input type="button" (click)=cambiarValor() value=" Cambiar">
+    </div>
+    <!--NGIF-->
+    <div class="row" *ngIf="nombreProyecto!='ocultar'">
+        <label *ngIf="miClase=='rojo'">Solo aparesco si soy rojo</label><br>
+        <label *ngIf="miClase=='azul'">Solo aparesco si soy azul</label><br>
+        <label>Hola estamos en el componente primero</label>
+        <input type="text" value="{{nombreProyecto}}" id="txtNombrse">
+        
+        <input type="text" [class]="miClase" [value]="nombreProyecto" (input)=cambiarNombreProyecto() id="txtNombre">
+        <input type="button" (click)=mostrarEnAlert(nombreProyecto) value=" Mostrar">
+
+        <br><br>
+        <!--NGFOR-->
+    </div>
+    <div class="row">
+        <select>
+            <option *ngFor="let item of nombres">{{item.nombre}}</option>
+        </select>
+        <br>
+        <select (input) = mostrarSeleccionado() id="optPersonas">
+            <option *ngFor="let item of nombres" value="{{item.dni}}">{{item.nombre}} {{item.apellido}}</option>
+        </select>
+        <br><br>
+        <div *ngFor="let item of nombres">
+            <input type="text" [value]="item.dni">
+            <input type="text" [value]="item.apellido">
+            <input type="text" [value]="item.nombre">
+        </div>
+    </div>
+    <br>
+    
+    <!--Mostrar Variables-->
+    <div class="row">
+        <label style="background-color: {{color}};">{{nombre}}</label>
+    </div>
+    <br>
+    
+    <!--Utilizar una variable para un atributo html-->
+    <div class="row">
+        <img [src]="path" alt="Ocurrio un error"/>
+    </div>
+    <br>
+    
+    <!--Llamar a un metodo de typeScript-->
+    <div class="row">
+        <input type="button" on-click="mostrar()" value="alerta">
+        <input type="button" (click)="mostrar()" value="alerta2">
+    </div>
+    <br>
+    
+    <!--Enlace en doble sentido-->
+    <form>
+        <div class="row">
+            {{nombre}}
+            <input type="text" [(ngModel)]="nombre" name="txtNombre">
+        </div>
+    </form>
+    <br>
+    
+    <!--ngIf-->
+    <form>
+        <div *ngIf="nombre!='falso'" class="row">
+            {{nombre}} es distinto a falso!!
+        </div>
+    </form>
+    <br>
+    
+    <!--ngIf else-->
+    <form>
+        <div *ngIf="nombre!='falso'; else bloqueElse" class="row">
+            {{nombre}} es distinto a falso!!
+        </div>
+        <ng-template #bloqueElse class="row">
+            {{nombre}} es falso!!
+        </ng-template>
+    </form>
+    <br>
+    
+    <!--ngIf then else-->
+    <form>
+        <label *ngIf="nombre!='falso'; then bloqueThen else bloqueElse">
+            Esto no se muestra nunca
+        </label>
+        <ng-template #bloqueThen>
+            {{nombre}} no es falso!!
+        </ng-template>
+        <ng-template #bloqueElse>
+            {{nombre}} es falso!!
+        </ng-template>
+    </form>
+    <br>
+
+    <!--ngFor-->
+    <form>
+        <select>
+            <option *ngFor="let item of nombres">{{item.nombre}}</option>
+        </select>
+    </form>
+    <br>
+
+    <!--Ejercicio - Mostrar Tabla-->
+    <form>
+        <table *ngIf="nombres.length != 0">
+            <tr>
+                <td>Nombre</td>
+                <td>Apellido</td>
+                <td>Dni</td>
+            </tr>
+            <tr *ngFor="let item of nombres">
+                <td>
+                    <label id="labels">{{item.nombre}}</label>
+                </td>
+                <td>
+                    <label id="labels">{{item.apellido}}</label>
+                </td>
+                <td>
+                    <label id="labels">{{item.dni}}</label>
+                </td>
+                <td>
+                    <input type="button" (click)="modificar()" value="modificar">
+                </td>
+            </tr>
+        </table>
+    </form>
+</form>

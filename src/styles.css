@@ -1,1 +1,63 @@
+/*Importamos bootstrap*/
+/*@import "~bootstrap/dist/css/bootstrap.css";*/
+
 /* You can add global styles to this file, and also import other style files */
+.centrado{
+    text-align: center;
+}
+
+.dorado{
+    color: rgb(255, 187, 0);
+}
+
+.login1{
+    background-color: rgb(65, 65, 65);
+    color: white;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.login2{
+    background: url("https://images8.alphacoders.com/945/thumb-1920-945396.jpg");
+    background-position: center;
+    background-size: cover;    
+}
+
+.fondoLogin{
+    background: url("https://images6.alphacoders.com/945/945397.jpg");
+    width: auto;
+    height: auto;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.fondoPublicaciones{
+    background: url("https://www.topgear.com/sites/default/files/images/news-article/carousel/2020/03/9ff1fb4007e2209e6ad7356e2c0cc9b7/17_chiron-pur-sport_interior-4.jpg");
+    width: auto;
+    height: auto;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.espaciadorLogin{
+    padding-top: 12%;
+    padding-bottom: 20%;
+}
+
+.espaciadorPublicaciones{
+    padding-top: 2%;
+    padding-bottom: 34%;
+}
+
+.iconoUsuario{
+    color: white;
+    text-decoration: none;
+    border-style: none;
+    background: none;
+}

@@ -1,0 +1,11 @@
+.fondoGris{
+    background-color: rgb(65, 65, 65);
+    color: white;
+    padding: 1%;
+}
+
+.fondoImg{
+    background: url("https://i1.wp.com/traxzee.com/wp-content/uploads/2021/03/TRAXZEE.COM-Car-Wallpapers-167-1080X1920.jpg?resize=1080%2C1920&ssl=1");
+    background-position: center;
+    background-size: cover;    
+}

@@ -1,0 +1,43 @@
+<br>
+<div *ngIf="personaArray.length !== 0" class="container">
+  <h3>Ejercicio {{miParametro}}</h3>
+  <br>
+    <div class="row">
+     
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Dni</th>
+            <th scope="col">Modificar Persona</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let persona of personaArray">                  
+            <td>
+                <label *ngIf="modificando != persona.dni">{{persona.nombre}}</label>
+                <input type="text" *ngIf="modificando == persona.dni" [(ngModel)]="persona.nombre">
+            </td>
+            <td>
+                <label *ngIf="modificando != persona.dni">{{persona.apellido}}</label>
+                <input type="text" *ngIf="modificando == persona.dni" [(ngModel)]="persona.apellido">
+            </td>
+            <td>
+                <label *ngIf="modificando != persona.dni">{{persona.dni}}</label>
+                <input type="text" *ngIf="modificando == persona.dni" [(ngModel)]="persona.dni">
+            </td>
+            <td>
+              <app-visor [persona]="persona" (modificarPersona)="ModificarPersona($event)" [modifica]="modificando != persona.dni"></app-visor>
+              <!--<button *ngIf="modificando != persona.dni" (click)="ModificarPersona(persona.dni)" class="btn btn-warning"> Modificar</button>
+              <button *ngIf="modificando == persona.dni" (click)="ModificarPersona(-1)" class="btn btn-warning"> Guardar</button>-->
+            </td>       
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <button (click)="mostrar()">Ver Personas</button>
+      
+      <app-primer-componente [miValor]="variablePadre"></app-primer-componente>
+    </div>
+</div> 

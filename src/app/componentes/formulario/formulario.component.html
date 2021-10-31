@@ -1,0 +1,16 @@
+
+<input [(ngModel)]="name" required>
+
+<p>Value: {{name}}</p>
+<p>Valid:</p>
+
+<button (click)="setValue()">Set value</button>
+
+<br>
+<!--Ver por que no lo muestra-->
+<div *ngFor ="let valor provincias">
+    {{valor.nombre}}
+</div>
+
+<!--Resuelve el children del routing-->
+<router-outlet></router-outlet>

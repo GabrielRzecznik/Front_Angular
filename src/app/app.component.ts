@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'miProyecto';
+  //Borrar
+  soyUnaVariable = "fondoAmarillo";
+  //Crear una fecha
+  fecha: Date = new Date();
 }

@@ -1,0 +1,72 @@
+<!--Seleccionado-->
+<div *ngIf=""></div>
+<div class="fondoPublicaciones espaciadorPublicaciones img-fluid">
+  <div class="container">
+    <!--Publicaciones en Ventanas-->
+
+    <!--Publicaciones en Tabla-->
+    <div *ngIf="automovilArray.length !== 0">
+      <div class="row">
+        <table class="table table-dark table-striped table-bordered centrado">
+          <thead>
+            <tr>
+              <th scope="col">Patente</th>
+              <th scope="col">Marca</th>
+              <th scope="col">Modelo</th>
+              <th scope="col">Versión</th>
+              <th scope="col">Color</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Caja</th>
+              <th scope="col">Combustible</th>
+              <th scope="col">Valor</th>
+              <th scope="col">Kilometraje</th>
+              <th scope="col">Año</th>
+              <th scope="col">Propietario</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let automovil of automovilArray | orden:0">                  
+              <td>
+                <label>{{automovil.patente}}</label>
+              </td>
+              <td>
+                <label>{{automovil.marca}}</label>
+              </td>
+              <td>
+                <label>{{automovil.modelo}}</label>
+              </td>
+              <td>
+                <label>{{automovil.version}}</label>
+              </td>
+              <td>
+                <label>{{automovil.color}}</label>
+              </td>
+              <td>
+                <label>{{automovil.estado}}</label>
+              </td>
+              <td>
+                <label>{{automovil.caja}}</label>
+              </td>
+              <td>
+                <label>{{automovil.combustible}}</label>
+              </td>
+              <td>
+                <label>{{automovil.valor}}</label>
+              </td>
+              <td>
+                <label>{{automovil.kilometraje}}</label>
+              </td>
+              <td>
+                <label>{{automovil.anio}}</label>
+              </td>
+              <td>
+                <label>{{automovil.propietario}}</label>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
