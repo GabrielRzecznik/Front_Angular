@@ -1,8 +1,53 @@
 <!--Seleccionado-->
 <div *ngIf=""></div>
-<div class="fondoPublicaciones espaciadorPublicaciones img-fluid">
+<div class="fondoPublicaciones img-fluid">
   <div class="container">
     <!--Publicaciones en Ventanas-->
+    <!--Crear Publicación-->
+    <form [formGroup]="formularioAutomovil" (ngSubmit)="CrearAutomovil()">  
+      <div class="row login1">
+        <h2>Publicar:</h2>
+          <div class="col-6 login1">
+              <span class="texto">Patente </span><i [ngClass]="{'validado bi-x-circle-fill': formularioAutomovil.get('patente')?.hasError('required'), 'error bi bi-check-circle-fill iconos' : !formularioAutomovil.get('patente')?.hasError('required')}" id="iconoPatente"></i><span class="mensajePatente"></span>
+              <input type="text" class="form-control inputs" formControlName="patente" id="patente" class="form-control">
+              <span class="texto">Marca </span><i class="bi bi-x-circle-fill iconos validado" id="iconoMarca"></i><span class="mensajeMarca"></span>
+              <input type="text" class="form-control inputs" formControlName="marca" id="marca" class="form-control">
+              <span class="texto">Modelo </span><i class="bi bi-x-circle-fill iconos validado" id="iconoModelo"></i><span class="mensajeModelo"></span>
+              <input type="text" class="form-control inputs" formControlName="modelo" id="modelo" class="form-control">
+              <span class="texto">Version </span><i class="bi bi-x-circle-fill iconos validado" id="iconoVersion"></i><span class="mensajeVersion"></span>
+              <input type="text" class="form-control inputs" formControlName="version" id="version" class="form-control">
+              <span class="texto">Color </span><i class="bi bi-x-circle-fill iconos validado" id="iconoColor"></i><span class="mensajeColor"></span>
+              <input type="text" class="form-control inputs" formControlName="color" id="color" class="form-control">
+              <span class="texto">Estado </span><i class="bi bi-x-circle-fill iconos validado" id="iconoEstado"></i><span class="mensajeEstado"></span>
+              <input type="text" class="form-control inputs" formControlName="estado" id="estado" class="form-control">
+          </div>
+          <div class="col-6 login1">
+              <span class="texto">Caja </span><i class="bi bi-x-circle-fill iconos validado" id="iconoCambio"></i><span class="mensajeCambio"></span>
+              <select class="form-control" formControlName="cambio" id="cambio">
+                  <option value="0" selected>Seleccione el cambio...</option>
+                  <option value="Manual">Manual</option>
+                  <option value="Automatico">Automatico</option>
+              </select>
+              <span class="texto">Combustible </span><i class="bi bi-x-circle-fill iconos validado" id="iconoCombustible"></i><span class="mensajeCombustible"></span>
+              <select class="form-control" formControlName="combustible" id="combustible">
+                  <option value="0" selected>Seleccione el combustible...</option>
+                  <option value="Nafta">Gas</option>
+                  <option value="Disel">Disel</option>
+                  <option value="Nafta">Nafta</option>
+                  <option value="Hibrido">Hibrido</option>
+                  <option value="Electrico">Electrico</option>
+              </select>
+              <span class="texto">Valor </span><i class="bi bi-x-circle-fill iconos validado" id="iconoValor"></i><span class="mensajeValor"></span>
+              <input type="text" class="form-control inputs" formControlName="valor" id="valor" class="form-control">
+              <span class="texto">Kilometraje </span><i class="bi bi-x-circle-fill iconos validado" id="iconoKilometraje"></i><span class="mensajeKilometraje"></span>
+              <input type="text" class="form-control inputs" formControlName="kilometraje" id="kilometraje" class="form-control">
+              <span class="texto">Año </span><i class="bi bi-x-circle-fill iconos validado" id="iconoAnio"></i><span class="mensajeAnio"></span>
+              <input type="text" class="form-control inputs" formControlName="anio" id="anio" class="form-control">
+              <br>
+              <button type="submit" class="btn btn-success" name="publicar" id="publicar" [disabled]="formularioAutomovil.invalid">Publicar</button>
+          </div>
+      </div>
+  </form>
 
     <!--Publicaciones en Tabla-->
     <div *ngIf="automovilArray.length !== 0">
@@ -22,45 +67,63 @@
               <th scope="col">Kilometraje</th>
               <th scope="col">Año</th>
               <th scope="col">Propietario</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let automovil of automovilArray | orden:0">                  
+            <tr *ngFor="let automovil of tablaAutomoviles">                  
               <td>
-                <label>{{automovil.patente}}</label>
+                <label *ngIf="modificando != automovil.patente">{{automovil.patente}}</label>
+                <input *ngIf="modificando == automovil.patente" type="text" class="form-control" [(ngModel)]="automovil.patente">
               </td>
               <td>
-                <label>{{automovil.marca}}</label>
+                <label *ngIf="modificando != automovil.patente">{{automovil.marca}}</label>
+                <input *ngIf="modificando == automovil.patente" type="text" class="form-control" [(ngModel)]="automovil.marca">
               </td>
               <td>
-                <label>{{automovil.modelo}}</label>
+                <label *ngIf="modificando != automovil.patente">{{automovil.modelo}}</label>
+                <input *ngIf="modificando == automovil.patente" type="text" class="form-control" [(ngModel)]="automovil.modelo">
               </td>
               <td>
-                <label>{{automovil.version}}</label>
+                <label *ngIf="modificando != automovil.patente">{{automovil.version}}</label>
+                <input *ngIf="modificando == automovil.patente" type="text" class="form-control" [(ngModel)]="automovil.version">
               </td>
               <td>
-                <label>{{automovil.color}}</label>
+                <label *ngIf="modificando != automovil.patente">{{automovil.color}}</label>
+                <input *ngIf="modificando == automovil.patente" type="text" class="form-control" [(ngModel)]="automovil.color">
               </td>
               <td>
-                <label>{{automovil.estado}}</label>
+                <label *ngIf="modificando != automovil.patente">{{automovil.estado}}</label>
+                <input *ngIf="modificando == automovil.patente" type="text" class="form-control" [(ngModel)]="automovil.estado">
               </td>
               <td>
-                <label>{{automovil.caja}}</label>
+                <label *ngIf="modificando != automovil.patente">{{automovil.cambio}}</label>
+                <input *ngIf="modificando == automovil.patente" type="text" class="form-control" [(ngModel)]="automovil.cambio">
               </td>
               <td>
-                <label>{{automovil.combustible}}</label>
+                <label *ngIf="modificando != automovil.patente">{{automovil.combustible}}</label>
+                <input *ngIf="modificando == automovil.patente" type="text" class="form-control" [(ngModel)]="automovil.combustible">
               </td>
               <td>
-                <label>{{automovil.valor}}</label>
+                <label *ngIf="modificando != automovil.patente">{{automovil.valor}}</label>
+                <input *ngIf="modificando == automovil.patente" type="text" class="form-control" [(ngModel)]="automovil.valor">
               </td>
               <td>
-                <label>{{automovil.kilometraje}}</label>
+                <label *ngIf="modificando != automovil.patente">{{automovil.kilometraje}}</label>
+                <input *ngIf="modificando == automovil.patente" type="text" class="form-control" [(ngModel)]="automovil.kilometraje">
               </td>
               <td>
-                <label>{{automovil.anio}}</label>
+                <label *ngIf="modificando != automovil.patente">{{automovil.anio}}</label>
+                <input *ngIf="modificando == automovil.patente" type="text" class="form-control" [(ngModel)]="automovil.anio">
               </td>
               <td>
-                <label>{{automovil.propietario}}</label>
+                <label *ngIf="modificando != automovil.patente">{{automovil.propietario}}</label>
+                <input *ngIf="modificando == automovil.patente" type="text" class="form-control" [(ngModel)]="automovil.propietario">
+              </td>
+              <td>
+                <button *ngIf="modificando != automovil.patente" (click)="ModificarAutomovil(automovil.patente)" class="btn btn-warning"><i class="bi bi-pencil-square"></i></button>
+                <button *ngIf="modificando == automovil.patente" (click)="ModificarAutomovil('No')" class="btn btn-warning"><i class="bi bi-file-earmark-arrow-up"></i></button>
+                <button (click)="EliminarAutomovil(automovil.patente)" class="btn btn-danger"><i class="bi bi-trash"></i></button>
               </td>
             </tr>
           </tbody>

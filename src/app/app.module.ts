@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'; //Para realizar un enlace entre el model y la vista, se utiliza el atributo ngModel [(ngModel)]
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; //Para realizar un enlace entre el model y la vista, se utiliza el atributo ngModel [(ngModel)]
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,6 +38,7 @@ import { OrdenPipe } from './componentes/publicaciones/orden.pipe';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [ HttpClient ],

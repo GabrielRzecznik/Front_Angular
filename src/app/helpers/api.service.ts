@@ -8,23 +8,33 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
-  constructor( private http:HttpClient) { 
+  constructor(private http: HttpClient) {
 
   }
 
-  traerValor(){
+  traerValor() {
     //Clase 8 1:22:00
     //Get
     //return this.http.get('').subscribe(function(respuesta){console.info(respuesta)});
 
     //Clase 20, minuto 8:15 explica como modificarlo para traer los datos
     //return this.http.get('http://localhost/phpapp/Backend/', {}).subscribe(x => {return (<HttpResponse<any>>x).body});
-    return this.http.get('http://localhost/phpapp/Backend/',{});
+    return this.http.get('https://parcial-edi-backend.herokuapp.com/Automoviles/listaAutomovil');
   }
 
-  traerValoresPost():Observable<any>{
+  PublicarAutomovil(patente: string, marca: string, modelo: string, version: string, color: string, estado: string, cambio: string, combustible: string, valor: number, kilometraje: number, anio: number) {
+    const body = { patente, marca, modelo, version, color, estado, cambio, combustible, valor, kilometraje, anio, propietario:"gabriel@gmail.com" };
+    return this.http.post('https://parcial-edi-backend.herokuapp.com/Automoviles/publicarAutomovil', body);
+  }
+
+  EliminarAutomovil(patente: string) {
+    const body = { patente };
+    return this.http.delete('https://parcial-edi-backend.herokuapp.com/Automoviles/eliminarAutomovil', { body });
+  }
+
+  traerValoresPost(): Observable<any> {
     //Post                      .toPromise()
-    return this.http.post('',{});
+    return this.http.post('', {});
   }
 
 }

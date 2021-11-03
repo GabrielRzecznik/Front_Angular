@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Automovil } from 'src/app/entidades/automovil';
+import { ApiService } from 'src/app/helpers/api.service';
 
 @Component({
   selector: 'app-publicaciones',
@@ -7,9 +9,31 @@ import { Automovil } from 'src/app/entidades/automovil';
   styleUrls: ['./publicaciones.component.css']
 })
 export class PublicacionesComponent implements OnInit {
+  formularioAutomovil!:FormGroup;
   automovilArray:Array<Automovil>;
+  //Yo quiero cargarle a este array la respuesta de abajo
+  tablaAutomoviles:any;
 
-  constructor() { 
+  modificando:string|undefined;
+
+  constructor(private api:ApiService, private fb:FormBuilder) {
+    this.formularioAutomovil = this.fb.group({
+      patente: ["",[Validators.required, Validators.minLength(7), Validators.maxLength(9)]],
+      marca: ["",[Validators.required, Validators.minLength(4), Validators.maxLength(24)]],
+      modelo: ["",[Validators.required, Validators.minLength(1), Validators.maxLength(24)]],
+      version: ["",[Validators.required, Validators.minLength(4), Validators.maxLength(24)]],
+      color: ["",[Validators.required, Validators.minLength(4), Validators.maxLength(24)]],
+      estado: ["",[Validators.required, Validators.minLength(4), Validators.maxLength(24)]],
+      cambio: ["",Validators.required],
+      combustible: ["",Validators.required],
+      valor:["",[Validators.required, Validators.minLength(3), Validators.maxLength(24)]],
+      kilometraje: ["",[Validators.required, Validators.minLength(1), Validators.maxLength(24)]],
+      anio: ["",[Validators.required, Validators.minLength(2), Validators.maxLength(4)]],
+      //propietario: ["",Validators.required]
+    });
+
+    this.modificando = "false";
+
     this.automovilArray = [
       {patente:"AC 645 JD",	marca:"Honda",	modelo:"Civic",	version:"Basic",	color:"Blanco perlado",	estado:"Como nuevo",	caja:"Manual",	combustible:"Disel",	valor:27000,	kilometraje:7000,	anio:2019,	propietario:"Gabriel"},
       {patente:"AB 354 UY",	marca:"Ford",	modelo:"Mondeo",	version:"Full",	color:"Azul marino",	estado:"Usado bueno",	caja:"Automatico",	combustible:"Nafta",	valor:30000,	kilometraje:83000,	anio:2018,	propietario:"Alan"},
@@ -19,8 +43,57 @@ export class PublicacionesComponent implements OnInit {
     ];
   }
 
-  ngOnInit(): void {
+  ModificarAutomovil(patente:string|undefined){
+    this.modificando = patente;
   }
 
+  // EditarAutomovil(patente:string){
+  //   this.api.EditarAutomovil(patente).subscribe(resp => {
+  //     console.log(resp);
+  //   this.CargarTabla();
+  //   });
+  // }
+
+  CrearAutomovil(){
+    if (this.formularioAutomovil.invalid) {
+      return;
+    }
+    console.log(this.formularioAutomovil.value);
+    this.api.PublicarAutomovil(
+      this.formularioAutomovil.value.patente,
+      this.formularioAutomovil.value.marca,
+      this.formularioAutomovil.value.modelo,
+      this.formularioAutomovil.value.version,
+      this.formularioAutomovil.value.color,
+      this.formularioAutomovil.value.estado,
+      this.formularioAutomovil.value.cambio,
+      this.formularioAutomovil.value.combustible,
+      this.formularioAutomovil.value.valor,
+      this.formularioAutomovil.value.kilometraje,
+      this.formularioAutomovil.value.anio).subscribe(resp => {
+        console.log(resp);
+        this.tablaAutomoviles.push(resp);
+        this.CargarTabla();
+      });    
+  }
+
+  EliminarAutomovil(patente:string){
+    //Selecciona el campo para eliminar
+    //console.log(patente);
+    this.api.EliminarAutomovil(patente).subscribe(resp => {
+      console.log(resp);
+    this.CargarTabla();
+    });
+  }
+
+  ngOnInit(): void {
+    //this.api.traerValor().subscribe(resp => console.info(resp));
+    //this.api.traerValor().subscribe(resp => {return resp});
+    this.CargarTabla();
+  }
+
+  CargarTabla(){
+    this.api.traerValor().subscribe(resp => this.tablaAutomoviles = resp);
+  }
 }
 
