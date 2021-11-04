@@ -8,27 +8,35 @@
       <div class="row login1">
         <h2>Publicar:</h2>
           <div class="col-6 login1">
-              <span class="texto">Patente </span><i [ngClass]="{'validado bi-x-circle-fill': formularioAutomovil.get('patente')?.hasError('required'), 'error bi bi-check-circle-fill iconos' : !formularioAutomovil.get('patente')?.hasError('required')}" id="iconoPatente"></i><span class="mensajePatente"></span>
+              <!--Patente-->  
+              <span>Patente </span><i [ngClass]="{'validado bi-x-circle-fill': formularioAutomovil.get('patente')?.hasError('required'), 'error bi bi-check-circle-fill iconos' : !formularioAutomovil.get('patente')?.hasError('required')}" id="iconoPatente"></i><span class="mensajePatente"></span>
               <input type="text" class="form-control inputs" formControlName="patente" id="patente" class="form-control">
-              <span class="texto">Marca </span><i class="bi bi-x-circle-fill iconos validado" id="iconoMarca"></i><span class="mensajeMarca"></span>
+              <!--Marca-->
+              <span>Marca </span><i [ngClass]="{'validado bi-x-circle-fill': formularioAutomovil.get('marca')?.hasError('required'), 'error bi bi-check-circle-fill iconos' : !formularioAutomovil.get('marca')?.hasError('required')}" id="iconoMarca"></i><span class="mensajeMarca"></span>
               <input type="text" class="form-control inputs" formControlName="marca" id="marca" class="form-control">
-              <span class="texto">Modelo </span><i class="bi bi-x-circle-fill iconos validado" id="iconoModelo"></i><span class="mensajeModelo"></span>
+              <!--Modelo-->
+              <span>Modelo </span><i [ngClass]="{'validado bi-x-circle-fill': formularioAutomovil.get('modelo')?.hasError('required'), 'error bi bi-check-circle-fill iconos' : !formularioAutomovil.get('modelo')?.hasError('required')}" id="iconoModelo"></i><span class="mensajeModelo"></span>
               <input type="text" class="form-control inputs" formControlName="modelo" id="modelo" class="form-control">
-              <span class="texto">Version </span><i class="bi bi-x-circle-fill iconos validado" id="iconoVersion"></i><span class="mensajeVersion"></span>
+              <!--Version-->
+              <span>Version </span><i [ngClass]="{'validado bi-x-circle-fill': formularioAutomovil.get('version')?.hasError('required'), 'error bi bi-check-circle-fill iconos' : !formularioAutomovil.get('version')?.hasError('required')}" id="iconoVersion"></i><span class="mensajeVersion"></span>
               <input type="text" class="form-control inputs" formControlName="version" id="version" class="form-control">
-              <span class="texto">Color </span><i class="bi bi-x-circle-fill iconos validado" id="iconoColor"></i><span class="mensajeColor"></span>
+              <!--Color-->
+              <span>Color </span><i [ngClass]="{'validado bi-x-circle-fill': formularioAutomovil.get('color')?.hasError('required'), 'error bi bi-check-circle-fill iconos' : !formularioAutomovil.get('color')?.hasError('required')}"></i><span class="mensajeColor"></span>
               <input type="text" class="form-control inputs" formControlName="color" id="color" class="form-control">
-              <span class="texto">Estado </span><i class="bi bi-x-circle-fill iconos validado" id="iconoEstado"></i><span class="mensajeEstado"></span>
+              <!--Estado-->
+              <span>Estado </span><i [ngClass]="{'validado bi-x-circle-fill': formularioAutomovil.get('estado')?.hasError('required'), 'error bi bi-check-circle-fill iconos' : !formularioAutomovil.get('estado')?.hasError('required')}"></i><span class="mensajeEstado"></span>
               <input type="text" class="form-control inputs" formControlName="estado" id="estado" class="form-control">
-          </div>
-          <div class="col-6 login1">
-              <span class="texto">Caja </span><i class="bi bi-x-circle-fill iconos validado" id="iconoCambio"></i><span class="mensajeCambio"></span>
+            </div>
+            <div class="col-6 login1">
+              <!--Cambio-->
+              <span>Caja </span><i [ngClass]="{'validado bi-x-circle-fill': formularioAutomovil.get('cambio')?.hasError('required'), 'error bi bi-check-circle-fill iconos' : !formularioAutomovil.get('cambio')?.hasError('required')}" id="iconoCambio"></i><span class="mensajeCambio"></span>
               <select class="form-control" formControlName="cambio" id="cambio">
                   <option value="0" selected>Seleccione el cambio...</option>
                   <option value="Manual">Manual</option>
                   <option value="Automatico">Automatico</option>
               </select>
-              <span class="texto">Combustible </span><i class="bi bi-x-circle-fill iconos validado" id="iconoCombustible"></i><span class="mensajeCombustible"></span>
+              <!--Combustible-->
+              <span>Combustible </span><i [ngClass]="{'validado bi-x-circle-fill': formularioAutomovil.get('combustible')?.hasError('required'), 'error bi bi-check-circle-fill iconos' : !formularioAutomovil.get('combustible')?.hasError('required')}" id="iconoCombustible"></i><span class="mensajeCombustible"></span>
               <select class="form-control" formControlName="combustible" id="combustible">
                   <option value="0" selected>Seleccione el combustible...</option>
                   <option value="Nafta">Gas</option>
@@ -37,11 +45,11 @@
                   <option value="Hibrido">Hibrido</option>
                   <option value="Electrico">Electrico</option>
               </select>
-              <span class="texto">Valor </span><i class="bi bi-x-circle-fill iconos validado" id="iconoValor"></i><span class="mensajeValor"></span>
+              <span>Valor </span><i [ngClass]="{'validado bi-x-circle-fill': formularioAutomovil.get('valor')?.hasError('required'), 'error bi bi-check-circle-fill iconos' : !formularioAutomovil.get('valor')?.hasError('required')}" id="iconoValor"></i><span class="mensajeValor"></span>
               <input type="text" class="form-control inputs" formControlName="valor" id="valor" class="form-control">
-              <span class="texto">Kilometraje </span><i class="bi bi-x-circle-fill iconos validado" id="iconoKilometraje"></i><span class="mensajeKilometraje"></span>
+              <span>Kilometraje </span><i [ngClass]="{'validado bi-x-circle-fill': formularioAutomovil.get('kilometraje')?.hasError('required'), 'error bi bi-check-circle-fill iconos' : !formularioAutomovil.get('kilometraje')?.hasError('required')}" id="iconoKilometraje"></i><span class="mensajeKilometraje"></span>
               <input type="text" class="form-control inputs" formControlName="kilometraje" id="kilometraje" class="form-control">
-              <span class="texto">Año </span><i class="bi bi-x-circle-fill iconos validado" id="iconoAnio"></i><span class="mensajeAnio"></span>
+              <span>Año </span><i [ngClass]="{'validado bi-x-circle-fill': formularioAutomovil.get('anio')?.hasError('required'), 'error bi bi-check-circle-fill iconos' : !formularioAutomovil.get('anio')?.hasError('required')}" id="iconoAnio"></i><span class="mensajeAnio"></span>
               <input type="text" class="form-control inputs" formControlName="anio" id="anio" class="form-control">
               <br>
               <button type="submit" class="btn btn-success" name="publicar" id="publicar" [disabled]="formularioAutomovil.invalid">Publicar</button>

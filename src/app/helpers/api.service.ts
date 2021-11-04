@@ -32,6 +32,11 @@ export class ApiService {
     return this.http.delete('https://parcial-edi-backend.herokuapp.com/Automoviles/eliminarAutomovil', { body });
   }
 
+  RegistrarUsuario(nombre: string, apellido: string, correo: string, contraseña: string, provincia: string, edad: number) {
+    const body = { nombre, apellido, correo, contraseña, provincia, edad };
+    return this.http.post('https://parcial-edi-backend.herokuapp.com/Usuarios/registrarUsuario', body);
+  }
+
   traerValoresPost(): Observable<any> {
     //Post                      .toPromise()
     return this.http.post('', {});

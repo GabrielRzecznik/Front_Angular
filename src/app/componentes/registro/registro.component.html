@@ -1,21 +1,84 @@
-<div class="container">
-    <div class="row">
-        <div>
-            <label>Usuario:</label>
-            <br>
-            <input type="text">
-            <br><br>
-            <label>Correo:</label>
-            <br>
-            <input type="text">
-            <br><br>
-            <label>Contraseña:</label>
-            <br>
-            <input type="password" name="password" id="password">
-            <br><br>
-            <input type="button" (click)=registrar() value="Registrar">
-            <br><br>
-            <input type="button" (click)=atras() value="Atras">
-        </div>
+<body class="fondoPublicaciones img-fluid">
+    <div class="container">
+        <form [formGroup]="formularioRegistro" (ngSubmit)="CrearUsuario()">
+            <div class="row login1">
+            <h2>Registrate Ya!!</h2>
+                <div class="col-6 login1">
+                   <!--Nombre-->
+                   <span>Nombre </span><i [ngClass]="{'validado bi-x-circle-fill': formularioRegistro.get('nombre')?.hasError('required'), 'error bi bi-check-circle-fill iconos' : !formularioRegistro.get('nombre')?.hasError('required')}" id="iconoNombre"></i>
+                   <br>
+                   <input type="text" class="form-control inputs" formControlName="nombre" name="nombre" id="nombre" class="form-control">
+                   <br>
+                   <!--Apellido-->
+                   <span class="texto">Apellido </span><i [ngClass]="{'validado bi-x-circle-fill': formularioRegistro.get('apellido')?.hasError('required'), 'error bi bi-check-circle-fill iconos' : !formularioRegistro.get('apellido')?.hasError('required')}"></i>
+                   <br>
+                   <input type="text" class="form-control inputs" formControlName="apellido" name="apellido" id="apellido" class="form-control">
+                   <br>
+                   <!--Correo-->
+                   <span class="texto">Correo </span><i [ngClass]="{'validado bi-x-circle-fill': formularioRegistro.get('correo')?.hasError('required'), 'error bi bi-check-circle-fill iconos' : !formularioRegistro.get('correo')?.hasError('required')}"></i>
+                   <br>
+                   <input type="text" class="form-control inputs" formControlName="correo" name="correo" id="correo" class="form-control">
+                   <br>
+                   <!--Contraseña-->
+                   <span class="texto">Contraseña </span><i></i>
+                   <br>
+                   <input type="password" class="form-control inputs" formControlName="contraseña" name="contraseña" id="contraseña" class="form-control">
+                   <br>
+                   <!--Confirme Contraseña-->
+                   <span class="texto">Confirme Contraseña </span><i></i>
+                   <br>
+                   <input type="password" class="form-control inputs" name="confirmeContraseña" id="confirmeContraseña">
+                   <br>
+                </div>
+                <div class="col-6 login1">
+                    <!--Provincia-->
+                    <span class="texto">Provincia </span><i></i>
+                    <br>
+                    <select class="form-control" formControlName="provincia" name="provincia" id="provincia">
+                        <option value="0" selected>Seleccione su provincia...</option>
+                        <option value="Buenos Aires">Buenos Aires</option>
+                        <option value="Catamarca">Catamarca</option>
+                        <option value="Chaco">Chaco</option>
+                        <option value="Chubut">Chubut</option>
+                        <option value="Córdoba">Córdoba</option>
+                        <option value="Corrientes">Corrientes</option>
+                        <option value="Entre Ríos">Entre Ríos</option>
+                        <option value="Formosa">Formosa</option>
+                        <option value="Jujuy">Jujuy</option>
+                        <option value="La Pampa">La Pampa</option>
+                        <option value="La Rioja">La Rioja</option>
+                        <option value="Mendoza">Mendoza</option>
+                        <option value="Misiones">Misiones</option>
+                        <option value="Neuquén">Neuquén</option>
+                        <option value="Río Negro">Río Negro</option>
+                        <option value="Salta">Salta</option>
+                        <option value="San Juan">San Juan</option>
+                        <option value="San Luis">San Luis</option>
+                        <option value="Santa Cruz">Santa Cruz</option>
+                        <option value="Santa Fe">Santa Fe</option>
+                        <option value="Santiago del Estero">Santiago del Estero</option>
+                        <option value="Tierra del Fuego">Tierra del Fuego</option>
+                        <option value="Tucumán">Tucumán</option>
+                    </select>
+                    <br>
+                    <!--Edad-->
+                    <span class="texto">Edad </span><i></i>
+                    <br>
+                    <select class="form-control" formControlName="edad" name="edad" id="edad">
+                        <option value="0" selected>Seleccione su edad...</option>
+                        <option value="1">> 16 años</option>
+                        <option value="2">≤ 16 años o ≥ 17 años</option>
+                        <option value="3">≤ 18 años</option>
+                    </select>
+                    <br>
+                    <br>
+                    <button type="submit" class="btn btn-warning" name="publicar" id="publicar" [disabled]="formularioRegistro.invalid">Registrarse</button>
+                </div>
+                <br>
+                <a src="" class="btn btn-success" (click)=atras() value="atras">Volver al Inicio de Sesión</a>
+            </div>
+        </form>
     </div>
-</div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+    
