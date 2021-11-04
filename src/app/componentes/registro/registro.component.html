@@ -20,14 +20,14 @@
                    <input type="text" class="form-control inputs" formControlName="correo" name="correo" id="correo" class="form-control">
                    <br>
                    <!--Contraseña-->
-                   <span class="texto">Contraseña </span><i [ngClass]="{'validado bi-x-circle-fill': formularioRegistro.get('contraseña')?.hasError('required'), 'error bi bi-check-circle-fill iconos' : !formularioRegistro.get('contraseña')?.hasError('required')}"></i>
+                   <span class="texto">Contraseña </span><i [ngClass]="{'validado bi-x-circle-fill': formularioRegistro.get('password')?.hasError('required'), 'error bi bi-check-circle-fill iconos' : !formularioRegistro.get('password')?.hasError('required')}"></i>
                    <br>
-                   <input type="password" class="form-control inputs" formControlName="contraseña" name="contraseña" id="contraseña" class="form-control">
+                   <input type="password" class="form-control inputs" formControlName="password" name="password" id="password" class="form-control">
                    <br>
                    <!--Confirme Contraseña-->
                    <span class="texto">Confirme Contraseña </span><i [ngClass]="{'validado bi-x-circle-fill': formularioRegistro.get('confirmeContraseña')?.hasError('required'), 'error bi bi-check-circle-fill iconos' : !formularioRegistro.get('confirmeContraseña')?.hasError('required')}"></i>
                    <br>
-                   <input type="password" class="form-control inputs" formControlName="confirmeContraseña" name="confirmeContraseña" id="confirmeContraseña">
+                   <input type="password" class="form-control inputs" name="confirmeContraseña" id="confirmeContraseña">
                    <br>
                 </div>
                 <div class="col-6 login1">

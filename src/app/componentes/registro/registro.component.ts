@@ -16,10 +16,9 @@ export class RegistroComponent implements OnInit {
       nombre: ["",[Validators.required, Validators.minLength(7), Validators.maxLength(9)]],
       apellido: ["",[Validators.required, Validators.minLength(4), Validators.maxLength(24)]],
       correo: ["",[Validators.required, Validators.minLength(1), Validators.maxLength(24)]],
-      contraseña: ["",[Validators.required, Validators.minLength(4), Validators.maxLength(24)]],
-      confirmeContraseña: ["",[Validators.required, Validators.minLength(4), Validators.maxLength(24)]],
-      provincia: ["",[Validators.required, Validators.minLength(4), Validators.maxLength(24)]],
-      edad: ["",[Validators.required, Validators.minLength(4), Validators.maxLength(24)]]
+      password: ["",[Validators.required, Validators.minLength(4), Validators.maxLength(24)]],
+      provincia: ["",[Validators.required]],
+      edad: ["",[Validators.required]]
     });
   }
 
@@ -43,7 +42,7 @@ export class RegistroComponent implements OnInit {
       this.formularioRegistro.value.usuario,
       this.formularioRegistro.value.apellido,
       this.formularioRegistro.value.correo,
-      this.formularioRegistro.value.contraseña,
+      this.formularioRegistro.value.password,
       this.formularioRegistro.value.provincia,
       this.formularioRegistro.value.edad
     );
