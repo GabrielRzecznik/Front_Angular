@@ -20,19 +20,19 @@
                    <input type="text" class="form-control inputs" formControlName="correo" name="correo" id="correo" class="form-control">
                    <br>
                    <!--Contraseña-->
-                   <span class="texto">Contraseña </span><i></i>
+                   <span class="texto">Contraseña </span><i [ngClass]="{'validado bi-x-circle-fill': formularioRegistro.get('contraseña')?.hasError('required'), 'error bi bi-check-circle-fill iconos' : !formularioRegistro.get('contraseña')?.hasError('required')}"></i>
                    <br>
                    <input type="password" class="form-control inputs" formControlName="contraseña" name="contraseña" id="contraseña" class="form-control">
                    <br>
                    <!--Confirme Contraseña-->
-                   <span class="texto">Confirme Contraseña </span><i></i>
+                   <span class="texto">Confirme Contraseña </span><i [ngClass]="{'validado bi-x-circle-fill': formularioRegistro.get('confirmeContraseña')?.hasError('required'), 'error bi bi-check-circle-fill iconos' : !formularioRegistro.get('confirmeContraseña')?.hasError('required')}"></i>
                    <br>
-                   <input type="password" class="form-control inputs" name="confirmeContraseña" id="confirmeContraseña">
+                   <input type="password" class="form-control inputs" formControlName="confirmeContraseña" name="confirmeContraseña" id="confirmeContraseña">
                    <br>
                 </div>
                 <div class="col-6 login1">
                     <!--Provincia-->
-                    <span class="texto">Provincia </span><i></i>
+                    <span class="texto">Provincia </span><i  [ngClass]="{'validado bi-x-circle-fill': formularioRegistro.get('provincia')?.hasError('required'), 'error bi bi-check-circle-fill iconos' : !formularioRegistro.get('provincia')?.hasError('required')}"></i>
                     <br>
                     <select class="form-control" formControlName="provincia" name="provincia" id="provincia">
                         <option value="0" selected>Seleccione su provincia...</option>
@@ -62,7 +62,7 @@
                     </select>
                     <br>
                     <!--Edad-->
-                    <span class="texto">Edad </span><i></i>
+                    <span class="texto">Edad </span><i  [ngClass]="{'validado bi-x-circle-fill': formularioRegistro.get('edad')?.hasError('required'), 'error bi bi-check-circle-fill iconos' : !formularioRegistro.get('edad')?.hasError('required')}"></i>
                     <br>
                     <select class="form-control" formControlName="edad" name="edad" id="edad">
                         <option value="0" selected>Seleccione su edad...</option>
