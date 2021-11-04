@@ -10,7 +10,7 @@ export class MenuComponent implements OnInit {
   mostrarNombre!:any;
 
   constructor() {
-    this.mostrarNombre == localStorage.setItem(Usuarios.name, 'válido');
+    this.mostrarNombre == localStorage.getItem;
   }
   ngOnInit(): void {
   }
