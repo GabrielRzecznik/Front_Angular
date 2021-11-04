@@ -39,13 +39,15 @@ export class RegistroComponent implements OnInit {
     }
     console.log(this.formularioRegistro.value);
     this.api.RegistrarUsuario(
-      this.formularioRegistro.value.usuario,
+      this.formularioRegistro.value.nombre,
       this.formularioRegistro.value.apellido,
       this.formularioRegistro.value.correo,
       this.formularioRegistro.value.password,
       this.formularioRegistro.value.provincia,
-      this.formularioRegistro.value.edad
-    );
+      this.formularioRegistro.value.edad).subscribe(resp => {
+        console.log(resp);
+        alert("Usuario Creado con exito");
+      });
   }
 }
 

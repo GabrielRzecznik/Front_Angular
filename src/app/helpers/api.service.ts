@@ -33,7 +33,7 @@ export class ApiService {
   }
 
   RegistrarUsuario(nombre: string, apellido: string, correo: string, contraseña: string, provincia: string, edad: number) {
-    const body = { nombre, apellido, correo, contraseña, provincia, edad };
+    const body = { nombre, apellido, correo, contraseña, provincia, edad};
     return this.http.post('https://parcial-edi-backend.herokuapp.com/Usuarios/registrarUsuario', body);
   }
 
