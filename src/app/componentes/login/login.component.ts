@@ -10,10 +10,13 @@ import { ApiService } from 'src/app/helpers/api.service';
 })
 export class LoginComponent implements OnInit {
   formularioLogin!:FormGroup;
+  //Guardar
+  usu!:any;
+  cont!:any;
 
   constructor(private api:ApiService, private router: Router, private fb:FormBuilder) {
     if (sessionStorage.getItem('token')=='válido') {
-      this.router.navigate(['/formulario']);//Con esto ya no puedo acceder al loguin
+      this.router.navigate(['/publicaciones']);//Con esto ya no puedo acceder al loguin
     }
     
     this.formularioLogin = this.fb.group({
@@ -49,6 +52,12 @@ export class LoginComponent implements OnInit {
       this.formularioLogin.value.password).subscribe(resp => {
         console.log(resp);
         this.entrar();
+        this.load(this.formularioLogin.value.correo, this.formularioLogin.value.password);
       });
   }
+
+  load(usu:any, contraseña:any){
+    this.usu = localStorage.getItem(usu);
+    this.cont = localStorage.getItem(contraseña);
+}
 }
