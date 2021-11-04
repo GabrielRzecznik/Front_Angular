@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuarios } from 'src/app/entidades/usuarios';
 
 @Component({
   selector: 'app-menu',
@@ -7,11 +6,15 @@ import { Usuarios } from 'src/app/entidades/usuarios';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  mostrarNombre!:any;
+  mostrarNombre!:String;
 
   constructor() {
-    this.mostrarNombre == localStorage.getItem;
+    
   }
   ngOnInit(): void {
+  }
+
+  mostrar(){
+
   }
 }
