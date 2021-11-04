@@ -37,6 +37,11 @@ export class ApiService {
     return this.http.post('https://parcial-edi-backend.herokuapp.com/Usuarios/registrarUsuario', body);
   }
 
+  BuscarUsuario(correo: string, contraseña: string) {
+    const body = {correo, contraseña};
+    return this.http.post('https://parcial-edi-backend.herokuapp.com/Usuarios/buscarUsuario', body);
+  }
+
   traerValoresPost(): Observable<any> {
     //Post                      .toPromise()
     return this.http.post('', {});
